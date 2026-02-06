@@ -8,40 +8,49 @@ title: "About Me"
 
 ## Background
 
-Write a brief introduction about yourself here. Include:
-
-- Your academic background
-- Your interest in data science
-- Your career goals
-- Any relevant experience or projects
-
-I am currently a senior studying Statistics with an emphasis in Data Science at Brigham Young University. I am interested in applying data analysis and statistical methods to areas of social science, particularly human development and family studies, and expect to graduate December 2026. 
+I am currently a senior studying Statistics with an emphasis in Data Science at Brigham Young University. I am interested in applying data analysis and statistical methods to social science, particularly human development and family studies, and expect to graduate in December 2026.
 
 ## Education
 
-- **Statistics: Data Science** - Brigham Young University, December 2026
-- **Relevant Coursework**: Statistics, Probability and Inference, Statistical Modeling, Linear Algebra, Data Science Ecosystems, Data Science Process, Analysis of Variance, Applied R Programming, Computer Programming and Data Structures
+- **Bachelor’s Degree in Statistics (Emphasis in Data Science)**  
+  Minor in Family Life  
+  Brigham Young University — Expected December 2026
+  
+- **Relevant Coursework**:
+  Statistics, Probability and Inference, Statistical Modeling, Analysis of Variance (statistical foundations);  
+  Applied R Programming, Data Science Process, Data Science Ecosystems (data science and computing);  
+  Linear Algebra, Computer Programming, Data Structures (mathematical and computational foundations).
+
+## Experience
+
+- **Applied Statistics and Data Analysis Projects**  
+  Gained hands-on experience through coursework involving data analysis, statistical modeling, and programming in R and Python. Projects included data cleaning, exploratory analysis, and interpretation of results in applied contexts.
+
+- **Independent Social Science Research Project**  
+  Designed and completed a full research project in a Critical Inquiry and Research Methods course, including research question development, literature review, data collection, analysis, and a written research report. 
+
+- **Science and History Tutor**  
+  Provide individualized science and history tutoring for an autistic, home-schooled student. Responsibilities include adapting instruction to the student’s learning needs and fostering engagement through personalized lessons.
+
+- **Volunteer Work**  
+  Served as a full-time representative of the Church of Jesus Christ of Latter-day Saints in Argentina for 18 months. Experience included leadership responsibilities, cross-cultural communication, and achieving fluency in Spanish.
 
 ## Skills & Interests
 
 ### Technical Skills
-- **Programming**: Python, R 
-- **Data Analysis**: Pandas, NumPy
+- **Programming**: Python, R; introductory experience with C++, Linux, and SQL
+- **Data Analysis**: Pandas, NumPy, exploratory analysis
+- **Visualization**: introductory experience with Tableau
 - **Tools**: Jupyter Notebooks, Git/GitHub
 
 ### Areas of Interest
-- [Your specific interests, e.g., environmental data, healthcare analytics, finance, etc.]
-- [Other areas you're curious about]
+- Social science and human development research
+- Family and relationship data
+- Applying data science to real-world human-centered problems
 
 ## Goals
 
-Describe what you hope to achieve through your data science journey:
-
-- Short-term learning objectives
-- Long-term career aspirations
-- Types of problems you want to solve
-
-
+Although I have limited experience, I am focused on continuing to develop strong foundations in statistical modeling and data science. I aim to gain experience applying data analysis to social science and family-related research questions, and I am exploring opportunities that combine data science with human- and family-centered research.
 
 ## Get to Know Me
 
