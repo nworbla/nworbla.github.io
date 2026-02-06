@@ -1,0 +1,112 @@
+[
+  {
+    "objectID": "about.html#background",
+    "href": "about.html#background",
+    "title": "About Me",
+    "section": "Background",
+    "text": "Background\nI am currently a senior studying Statistics with an emphasis in Data Science at Brigham Young University. I am interested in applying data analysis and statistical methods to social science, particularly human development and family studies, and expect to graduate in December 2026."
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About Me",
+    "section": "Education",
+    "text": "Education\n\nBachelor’s Degree in Statistics (Emphasis in Data Science)\nMinor in Family Life\nBrigham Young University — Expected December 2026\nRelevant Coursework: Statistics, Probability and Inference, Statistical Modeling, Analysis of Variance (statistical foundations);\nApplied R Programming, Data Science Process, Data Science Ecosystems (data science and computing);\nLinear Algebra, Computer Programming, Data Structures (mathematical and computational foundations)."
+  },
+  {
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
+    "title": "About Me",
+    "section": "Experience",
+    "text": "Experience\n\nApplied Statistics and Data Analysis Projects\nGained hands-on experience through coursework involving data analysis, statistical modeling, and programming in R and Python. Projects included data cleaning, exploratory analysis, and interpretation of results in applied contexts.\nIndependent Social Science Research Project\nDesigned and completed a full research project in a Critical Inquiry and Research Methods course, including research question development, literature review, data collection, analysis, and a written research report.\nScience and History Tutor\nProvide individualized science and history tutoring for an autistic, home-schooled student. Responsibilities include adapting instruction to the student’s learning needs and fostering engagement through personalized lessons.\nVolunteer Work\nServed as a full-time representative of the Church of Jesus Christ of Latter-day Saints in Argentina for 18 months. Experience included leadership responsibilities, cross-cultural communication, and achieving fluency in Spanish."
+  },
+  {
+    "objectID": "about.html#skills-interests",
+    "href": "about.html#skills-interests",
+    "title": "About Me",
+    "section": "Skills & Interests",
+    "text": "Skills & Interests\n\nTechnical Skills\n\nProgramming: Python, R; introductory experience with C++, Linux, and SQL\nData Analysis: Pandas, NumPy, exploratory analysis\nVisualization: introductory experience with Tableau\nTools: Jupyter Notebooks, Git/GitHub\n\n\n\nAreas of Interest\n\nSocial science and human development research\nFamily and relationship data\nApplying data science to real-world human-centered problems"
+  },
+  {
+    "objectID": "about.html#goals",
+    "href": "about.html#goals",
+    "title": "About Me",
+    "section": "Goals",
+    "text": "Goals\nAlthough I have limited experience, I am focused on continuing to develop strong foundations in statistical modeling and data science. I aim to gain experience applying data analysis to social science and family-related research questions, and I am exploring opportunities that combine data science with human- and family-centered research."
+  },
+  {
+    "objectID": "about.html#get-to-know-me",
+    "href": "about.html#get-to-know-me",
+    "title": "About Me",
+    "section": "Get to Know Me",
+    "text": "Get to Know Me\nOutside of academics, I enjoy spending time with my family and caring for my baby boy. I also love cooking, sweet treats, and finding simple yet delicious recipes. You might catch me playing the piano or cello when I have the time."
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About Me",
+    "section": "Contact",
+    "text": "Contact\n\nEmail: aishalwilkins@gmail.com\nGitHub: github.com/nworbla\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
+  },
+  {
+    "objectID": "projects/final-project.html",
+    "href": "projects/final-project.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "final-project.html"
+    ]
+  },
+  {
+    "objectID": "projects/eda.html",
+    "href": "projects/eda.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "eda.html"
+    ]
+  },
+  {
+    "objectID": "projects/data-acquisition.html",
+    "href": "projects/data-acquisition.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "data-acquisition.html"
+    ]
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "",
+    "section": "",
+    "text": "Code",
+    "crumbs": [
+      "index.html"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Welcome to My Data Science Portfolio",
+    "section": "",
+    "text": "Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you’ll find projects that demonstrate what I’ve learned and discovered.\n\n\nThis portfolio shows my work learning data science. Each project includes:\n\nMy code with documentation\nVisualizations I created\nWhat I learned and discovered\n\nI built this site using Quarto and host it on GitHub Pages.\n\n\n\nComing soon!\n👉 In the meantime, you can learn more About Me.\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
+  },
+  {
+    "objectID": "index.html#about-this-portfolio",
+    "href": "index.html#about-this-portfolio",
+    "title": "Welcome to My Data Science Portfolio",
+    "section": "",
+    "text": "This portfolio shows my work learning data science. Each project includes:\n\nMy code with documentation\nVisualizations I created\nWhat I learned and discovered\n\nI built this site using Quarto and host it on GitHub Pages."
+  },
+  {
+    "objectID": "index.html#my-projects",
+    "href": "index.html#my-projects",
+    "title": "Welcome to My Data Science Portfolio",
+    "section": "",
+    "text": "Coming soon!\n👉 In the meantime, you can learn more About Me.\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
+  }
+]
