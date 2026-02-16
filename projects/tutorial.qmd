@@ -10,20 +10,45 @@ The groupby() function is designed to split data by category or groups based on 
 
 In this tutorial, we'll walk through the simple ways we can use groupby() effectively. 
 
+```python
+#| echo: false
+import pandas as pd
+
+data = {
+    "Cereal": ["Frosted Flakes", "Cheerios", "Lucky Charms", "Raisin Bran",
+               "Corn Flakes", "Honey Nut Oats", "Granola Crunch", "Cocoa Puffs"],
+
+    "Store": ["Walmart", "Walmart", "Walmart", "Walmart",
+              "Target", "Target", "Target", "Target"],
+
+    "Brand_type": ["name brand", "name brand", "name brand", "name brand",
+                   "name brand", "generic", "generic", "name brand"],
+
+    "Price": [4.29, 3.99, 4.59, 5.49, 3.49, 2.79, 3.19, 4.39],
+
+    "Sugar_grams": [12, 1, 10, 7, 2, 8, 6, 13]
+}
+
+df = pd.DataFrame(data)
+df
+```
+
 ## Basic Syntax
 
-```Python
+```python
+#| eval: false
 df.groupby("Store")
 ```
 
 Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. 
 
-```Python
+```python
+#| eval: false
 df.groupby("Store").mean()
 ```
 
 
- ```Python
+ ```python
 df.groupby("Store")["Price"].mean()
 ```
 
@@ -39,16 +64,17 @@ Here are some of the most common functions used with groupby():
 
 ## Grouping by Multiple Columns
 
-```Python
+```python
 df.groupby(["Store", "Brand_type"])["Price"].mean()
 ```
 
 ## Using .agg() for Multiple Functions
 
-```Python
+```python
 df.groupby("Store")["Price"].agg(["mean", "min", "max", "count"])
 ```
-```Python
+
+```python
 df.groupby("Store").agg({
     "Price": ["mean", "max"],
     "Sugar_grams": "mean"
@@ -57,7 +83,7 @@ df.groupby("Store").agg({
 
 ## Resetting the Index
 
-```Python
+```python
 df.groupby("Store")["Price"].mean().reset_index()
 ```
 
