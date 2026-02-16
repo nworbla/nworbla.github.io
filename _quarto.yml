@@ -13,6 +13,8 @@ website:
         href: index
       - text: "About Me"
         href: about
+      - text: "Blog"
+        href: tutorial
       - text: "Projects"
         menu:
           - text: "All Projects"
