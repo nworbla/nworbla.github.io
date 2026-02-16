@@ -1,0 +1,64 @@
+# Pandas groupby() Simplified: A Quick, Practical Guide
+
+## Introduction
+
+Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to goup by category to summarize our data. 
+
+The pandas groupby() function allows us to do just that. 
+
+The groupby() function is designed to split data by category or groups based on one or more coloumns and compute summary statitics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, adding a simple function and even resetting the index can prove groupby() to be a powerful pandas tool. 
+
+In this tutorial, we'll walk through the simple ways we can use groupby() effectively. 
+
+## Basic Syntax
+
+```Python
+df.groupby("Store")
+```
+
+Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. 
+
+```Python
+df.groupby("Store").mean()
+```
+
+
+ ```Python
+df.groupby("Store")["Price"].mean()
+```
+
+## Common Aggregations
+
+Here are some of the most common functions used with groupby():  
+
+- mean() - average 
+- sum() - total 
+- max() - maximun value 
+- min() - minimum value
+- count() - number of observations
+
+## Grouping by Multiple Columns
+
+```Python
+df.groupby(["Store", "Brand_type"])["Price"].mean()
+```
+
+## Using .agg() for Multiple Functions
+
+```Python
+df.groupby("Store")["Price"].agg(["mean", "min", "max", "count"])
+```
+```Python
+df.groupby("Store").agg({
+    "Price": ["mean", "max"],
+    "Sugar_grams": "mean"
+})
+```
+
+## Resetting the Index
+
+```Python
+df.groupby("Store")["Price"].mean().reset_index()
+```
+
+## Conclusion and Next Steps 
