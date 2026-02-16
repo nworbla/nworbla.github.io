@@ -71,51 +71,58 @@
   {
     "objectID": "tutorial.html",
     "href": "tutorial.html",
-    "title": "Pandas groupby() Simplified",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
     "section": "",
-    "text": "Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to goup by category to summarize our data.\nThe pandas groupby() function allows us to do just that.\nThe groupby() function is designed to split data by category or groups based on one or more coloumns and compute summary statitics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, adding a simple function and even resetting the index can prove groupby() to be a powerful pandas tool.\nIn this tutorial, we’ll walk through the simple ways we can use groupby() effectively.\n#| echo: false\nimport pandas as pd\n\ndata = {\n    \"Cereal\": [\"Frosted Flakes\", \"Cheerios\", \"Lucky Charms\", \"Raisin Bran\",\n               \"Corn Flakes\", \"Honey Nut Oats\", \"Granola Crunch\", \"Cocoa Puffs\"],\n\n    \"Store\": [\"Walmart\", \"Walmart\", \"Walmart\", \"Walmart\",\n              \"Target\", \"Target\", \"Target\", \"Target\"],\n\n    \"Brand_type\": [\"name brand\", \"name brand\", \"name brand\", \"name brand\",\n                   \"name brand\", \"generic\", \"generic\", \"name brand\"],\n\n    \"Price\": [4.29, 3.99, 4.59, 5.49, 3.49, 2.79, 3.19, 4.39],\n\n    \"Sugar_grams\": [12, 1, 10, 7, 2, 8, 6, 13]\n}\n\ndf = pd.DataFrame(data)\ndf\n\n\n\n#| eval: false\ndf.groupby(\"Store\")\nAdding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values.\n#| eval: false\ndf.groupby(\"Store\").mean()\ndf.groupby(\"Store\")[\"Price\"].mean()\n\n\n\nHere are some of the most common functions used with groupby():\n\nmean() - average\nsum() - total\nmax() - maximun value\nmin() - minimum value\ncount() - number of observations\n\n\n\n\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()\n\n\n\ndf.groupby(\"Store\")[\"Price\"].agg([\"mean\", \"min\", \"max\", \"count\"])\ndf.groupby(\"Store\").agg({\n    \"Price\": [\"mean\", \"max\"],\n    \"Sugar_grams\": \"mean\"\n})\n\n\n\ndf.groupby(\"Store\")[\"Price\"].mean().reset_index()"
+    "text": "…in progress…"
   },
   {
     "objectID": "tutorial.html#introduction",
     "href": "tutorial.html#introduction",
-    "title": "Pandas groupby() Simplified",
-    "section": "",
-    "text": "Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to goup by category to summarize our data.\nThe pandas groupby() function allows us to do just that.\nThe groupby() function is designed to split data by category or groups based on one or more coloumns and compute summary statitics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, adding a simple function and even resetting the index can prove groupby() to be a powerful pandas tool.\nIn this tutorial, we’ll walk through the simple ways we can use groupby() effectively.\n#| echo: false\nimport pandas as pd\n\ndata = {\n    \"Cereal\": [\"Frosted Flakes\", \"Cheerios\", \"Lucky Charms\", \"Raisin Bran\",\n               \"Corn Flakes\", \"Honey Nut Oats\", \"Granola Crunch\", \"Cocoa Puffs\"],\n\n    \"Store\": [\"Walmart\", \"Walmart\", \"Walmart\", \"Walmart\",\n              \"Target\", \"Target\", \"Target\", \"Target\"],\n\n    \"Brand_type\": [\"name brand\", \"name brand\", \"name brand\", \"name brand\",\n                   \"name brand\", \"generic\", \"generic\", \"name brand\"],\n\n    \"Price\": [4.29, 3.99, 4.59, 5.49, 3.49, 2.79, 3.19, 4.39],\n\n    \"Sugar_grams\": [12, 1, 10, 7, 2, 8, 6, 13]\n}\n\ndf = pd.DataFrame(data)\ndf"
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Introduction",
+    "text": "Introduction\nSuppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to goup by category to summarize our data.\nThe pandas groupby() function allows us to do just that.\nThe groupby() function is designed to split data by category or groups based on one or more coloumns and compute summary statitics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, adding a simple function and even resetting the index can prove groupby() to be a powerful pandas tool.\nIn this tutorial, we’ll walk through the simple ways we can use groupby() effectively.\n#| echo: false\nimport pandas as pd\n\ndata = {\n    \"Cereal\": [\"Frosted Flakes\", \"Cheerios\", \"Lucky Charms\", \"Raisin Bran\",\n               \"Corn Flakes\", \"Honey Nut Oats\", \"Granola Crunch\", \"Cocoa Puffs\"],\n\n    \"Store\": [\"Walmart\", \"Walmart\", \"Walmart\", \"Walmart\",\n              \"Target\", \"Target\", \"Target\", \"Target\"],\n\n    \"Brand_type\": [\"name brand\", \"name brand\", \"name brand\", \"name brand\",\n                   \"name brand\", \"generic\", \"generic\", \"name brand\"],\n\n    \"Price\": [4.29, 3.99, 4.59, 5.49, 3.49, 2.79, 3.19, 4.39],\n\n    \"Sugar_grams\": [12, 1, 10, 7, 2, 8, 6, 13]\n}\n\ndf = pd.DataFrame(data)\ndf"
   },
   {
     "objectID": "tutorial.html#basic-syntax",
     "href": "tutorial.html#basic-syntax",
-    "title": "Pandas groupby() Simplified",
-    "section": "",
-    "text": "#| eval: false\ndf.groupby(\"Store\")\nAdding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values.\n#| eval: false\ndf.groupby(\"Store\").mean()\ndf.groupby(\"Store\")[\"Price\"].mean()"
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Basic Syntax",
+    "text": "Basic Syntax\n#| eval: false\ndf.groupby(\"Store\")\nAdding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values.\n#| eval: false\ndf.groupby(\"Store\").mean()\ndf.groupby(\"Store\")[\"Price\"].mean()"
   },
   {
     "objectID": "tutorial.html#common-aggregations",
     "href": "tutorial.html#common-aggregations",
-    "title": "Pandas groupby() Simplified",
-    "section": "",
-    "text": "Here are some of the most common functions used with groupby():\n\nmean() - average\nsum() - total\nmax() - maximun value\nmin() - minimum value\ncount() - number of observations"
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Common Aggregations",
+    "text": "Common Aggregations\nHere are some of the most common functions used with groupby():\n\nmean() - average\nsum() - total\nmax() - maximun value\nmin() - minimum value\ncount() - number of observations"
   },
   {
     "objectID": "tutorial.html#grouping-by-multiple-columns",
     "href": "tutorial.html#grouping-by-multiple-columns",
-    "title": "Pandas groupby() Simplified",
-    "section": "",
-    "text": "df.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()"
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Grouping by Multiple Columns",
+    "text": "Grouping by Multiple Columns\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()"
   },
   {
     "objectID": "tutorial.html#using-.agg-for-multiple-functions",
     "href": "tutorial.html#using-.agg-for-multiple-functions",
-    "title": "Pandas groupby() Simplified",
-    "section": "",
-    "text": "df.groupby(\"Store\")[\"Price\"].agg([\"mean\", \"min\", \"max\", \"count\"])\ndf.groupby(\"Store\").agg({\n    \"Price\": [\"mean\", \"max\"],\n    \"Sugar_grams\": \"mean\"\n})"
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Using .agg() for Multiple Functions",
+    "text": "Using .agg() for Multiple Functions\ndf.groupby(\"Store\")[\"Price\"].agg([\"mean\", \"min\", \"max\", \"count\"])\ndf.groupby(\"Store\").agg({\n    \"Price\": [\"mean\", \"max\"],\n    \"Sugar_grams\": \"mean\"\n})"
   },
   {
     "objectID": "tutorial.html#resetting-the-index",
     "href": "tutorial.html#resetting-the-index",
-    "title": "Pandas groupby() Simplified",
-    "section": "",
-    "text": "df.groupby(\"Store\")[\"Price\"].mean().reset_index()"
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Resetting the Index",
+    "text": "Resetting the Index\ndf.groupby(\"Store\")[\"Price\"].mean().reset_index()"
+  },
+  {
+    "objectID": "tutorial.html#conclusion-and-next-steps",
+    "href": "tutorial.html#conclusion-and-next-steps",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Conclusion and Next Steps",
+    "text": "Conclusion and Next Steps"
   },
   {
     "objectID": "projects/data-acquisition.html",
@@ -157,5 +164,61 @@
     "title": "Welcome to My Data Science Portfolio",
     "section": "",
     "text": "Coming soon!\n👉 In the meantime, you can learn more About Me.\n\nThanks for visiting! Feel free to explore my projects and see what I’m learning."
+  },
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "",
+    "text": "…in progress…"
+  },
+  {
+    "objectID": "blog.html#introduction",
+    "href": "blog.html#introduction",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Introduction",
+    "text": "Introduction\nSuppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to goup by category to summarize our data.\nThe pandas groupby() function allows us to do just that.\nThe groupby() function is designed to split data by category or groups based on one or more coloumns and compute summary statitics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, adding a simple function and even resetting the index can prove groupby() to be a powerful pandas tool.\nIn this tutorial, we’ll walk through the simple ways we can use groupby() effectively.\n#| echo: false\nimport pandas as pd\n\ndata = {\n    \"Cereal\": [\"Frosted Flakes\", \"Cheerios\", \"Lucky Charms\", \"Raisin Bran\",\n               \"Corn Flakes\", \"Honey Nut Oats\", \"Granola Crunch\", \"Cocoa Puffs\"],\n\n    \"Store\": [\"Walmart\", \"Walmart\", \"Walmart\", \"Walmart\",\n              \"Target\", \"Target\", \"Target\", \"Target\"],\n\n    \"Brand_type\": [\"name brand\", \"name brand\", \"name brand\", \"name brand\",\n                   \"name brand\", \"generic\", \"generic\", \"name brand\"],\n\n    \"Price\": [4.29, 3.99, 4.59, 5.49, 3.49, 2.79, 3.19, 4.39],\n\n    \"Sugar_grams\": [12, 1, 10, 7, 2, 8, 6, 13]\n}\n\ndf = pd.DataFrame(data)\ndf"
+  },
+  {
+    "objectID": "blog.html#basic-syntax",
+    "href": "blog.html#basic-syntax",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Basic Syntax",
+    "text": "Basic Syntax\n#| eval: false\ndf.groupby(\"Store\")\nAdding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values.\n#| eval: false\ndf.groupby(\"Store\").mean()\ndf.groupby(\"Store\")[\"Price\"].mean()"
+  },
+  {
+    "objectID": "blog.html#common-aggregations",
+    "href": "blog.html#common-aggregations",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Common Aggregations",
+    "text": "Common Aggregations\nHere are some of the most common functions used with groupby():\n\nmean() - average\nsum() - total\nmax() - maximun value\nmin() - minimum value\ncount() - number of observations"
+  },
+  {
+    "objectID": "blog.html#grouping-by-multiple-columns",
+    "href": "blog.html#grouping-by-multiple-columns",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Grouping by Multiple Columns",
+    "text": "Grouping by Multiple Columns\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()"
+  },
+  {
+    "objectID": "blog.html#using-.agg-for-multiple-functions",
+    "href": "blog.html#using-.agg-for-multiple-functions",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Using .agg() for Multiple Functions",
+    "text": "Using .agg() for Multiple Functions\ndf.groupby(\"Store\")[\"Price\"].agg([\"mean\", \"min\", \"max\", \"count\"])\ndf.groupby(\"Store\").agg({\n    \"Price\": [\"mean\", \"max\"],\n    \"Sugar_grams\": \"mean\"\n})"
+  },
+  {
+    "objectID": "blog.html#resetting-the-index",
+    "href": "blog.html#resetting-the-index",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Resetting the Index",
+    "text": "Resetting the Index\ndf.groupby(\"Store\")[\"Price\"].mean().reset_index()"
+  },
+  {
+    "objectID": "blog.html#conclusion-and-next-steps",
+    "href": "blog.html#conclusion-and-next-steps",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Conclusion and Next Steps",
+    "text": "Conclusion and Next Steps"
   }
 ]
