@@ -32,7 +32,7 @@
     "href": "blog.html#grouping-by-multiple-columns",
     "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
     "section": "Grouping by Multiple Columns",
-    "text": "Grouping by Multiple Columns\nYou can group by multiple columns. Doing so will create an index of all unique combinations of the groupby variables.\n\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()\n\nStore    Brand_type\nTarget   generic       2.99\n         name brand    3.94\nWalmart  name brand    4.59\nName: Price, dtype: float64"
+    "text": "Grouping by Multiple Columns\nYou can group by multiple columns. Doing so will create an index of all unique combinations of the grouped variables.\n\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()\n\nStore    Brand_type\nTarget   generic       2.99\n         name brand    3.94\nWalmart  name brand    4.59\nName: Price, dtype: float64"
   },
   {
     "objectID": "blog.html#using-.agg-for-multiple-functions",
@@ -47,6 +47,13 @@
     "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
     "section": "Resetting the Index",
     "text": "Resetting the Index\nAfter grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index(). This will move the grouped variable back to a regular column and create a new default index.\n\ndf.groupby(\"Store\")[\"Price\"].mean().reset_index()\n\n\n\n\n\n\n\n\nStore\nPrice\n\n\n\n\n0\nTarget\n3.465\n\n\n1\nWalmart\n4.590"
+  },
+  {
+    "objectID": "blog.html#split---apply---combine",
+    "href": "blog.html#split---apply---combine",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Split - Apply - Combine",
+    "text": "Split - Apply - Combine\nThe groupby() function is ultimately a tool for the split-apply-combine process.\n\nSplit: The data is first split into groups based on the groupby variable(s).\nApply: Then, a function is applied to each group independently.\nCombine: Finally, the results are combined back into a single data structure by resetting the index or using the default index.\n\nIf you feel stuck on how to use groupby() or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how groupby() works and how to use it effectively."
   },
   {
     "objectID": "blog.html#conclusion-and-next-steps",
@@ -164,12 +171,5 @@
     "title": "About Me",
     "section": "Contact",
     "text": "Contact\n\nEmail: aishalwilkins@gmail.com\nGitHub: github.com/nworbla\n\n\nThis portfolio showcases my learning progress and projects completed during my data science studies."
-  },
-  {
-    "objectID": "blog.html#split---apply---combine",
-    "href": "blog.html#split---apply---combine",
-    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
-    "section": "Split - Apply - Combine",
-    "text": "Split - Apply - Combine\nThe groupby() function is ultimately a tool for the split-apply-combine process.\n\nSplit: The data is first split into groups based on the groupby variable(s).\nApply: Then, a function is applied to each group independently.\nCombine: Finally, the results are combined back into a single data structure by resetting the index or using the default index.\n\nIf you feel stuck on how to use groupby() or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how groupby() works and how to use it effectively."
   }
 ]
