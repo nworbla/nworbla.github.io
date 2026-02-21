@@ -223,10 +223,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to group by category to summarize our data.</p>
-<p>The pandas groupby() function allows us to do just that.</p>
-<p>The groupby() function is designed to split data by category or groups based on one or more columns and compute summary statistics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, it can be a powerful tool when combined with a function to summarize the data.</p>
-<p>In this tutorial, we’ll walk through the simple ways we can use groupby() effectively using a dataset of cereal prices and sugar content from two different stores.</p>
-<div id="d904d70d" class="cell" data-execution_count="1">
+<p>The pandas <code>groupby()</code> function allows us to do just that.</p>
+<p>The <code>groupby()</code> function is designed to split data by category or groups based on one or more columns and compute summary statistics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, it can be a powerful tool when combined with a function to summarize the data.</p>
+<p>In this tutorial, we’ll walk through the simple ways we can use <code>groupby()</code> effectively using a dataset of cereal prices and sugar content from two different stores.</p>
+<div id="c5464c89" class="cell" data-execution_count="1">
 <div class="cell-output cell-output-display" data-execution_count="1">
 <div>
 
@@ -316,18 +316,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="basic-syntax" class="level2">
 <h2 class="anchored" data-anchor-id="basic-syntax">Basic Syntax</h2>
-<p>To categorize your data by a certain variable, first, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.</p>
-<div id="f7f03485" class="cell" data-execution_count="2">
+<p>To categorize your data by a certain variable, first, call the <code>groupby()</code> function on your data frame with the variable column name as your argument. When you call <code>groupby()</code>, pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.</p>
+<div id="fe99fc60" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. Adding the argument numeric_only = True to the function will apply the function only to numeric variables.</p>
-<div id="7142c9ca" class="cell" data-execution_count="3">
+<p>Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that <code>max()</code> and <code>min()</code> will provide the first and last alphabetically respectively for string values. Adding the argument <code>numeric_only = True</code> to the function will apply the function only to numeric variables.</p>
+<div id="6037f1db" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>).mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To get the result of a single variable, place it in brackets after the groupby variable(s) and apply the function at the end.</p>
 <p>To select a single column after grouping, you can use either single or double brackets. The single bracket will return a Series, while the double brackets will return a DataFrame.</p>
 <p>The code below will give us the average price of cereal per store. We can see that the average price of cereal at Walmart is higher than at Target.</p>
-<div id="107cb943" class="cell" data-execution_count="4">
+<div id="406db080" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>Store
@@ -336,7 +336,7 @@ Walmart    4.590
 Name: Price, dtype: float64</code></pre>
 </div>
 </div>
-<div id="20667a85" class="cell" data-execution_count="5">
+<div id="4641c852" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[[<span class="st">"Price"</span>]].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
@@ -368,8 +368,8 @@ Name: Price, dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<p>Note that multiple columns can be selected at once. This code will give us the average price <em>and</em> sugar content of cereal per store.</p>
-<div id="24d1c9d9" class="cell" data-execution_count="6">
+<p>Note that multiple columns can be selected at once. The following code will give us the average price <em>and</em> sugar content of cereal per store.</p>
+<div id="21ec51af" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[[<span class="st">"Price"</span>, <span class="st">"Sugar_grams"</span>]].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
@@ -408,7 +408,7 @@ Name: Price, dtype: float64</code></pre>
 </section>
 <section id="common-aggregations" class="level2">
 <h2 class="anchored" data-anchor-id="common-aggregations">Common Aggregations</h2>
-<p>Here are some of the most common functions used with groupby():</p>
+<p>Here are some of the most common functions used with <code>groupby()</code>:</p>
 <ul>
 <li>mean() - average</li>
 <li>sum() - total</li>
@@ -420,7 +420,7 @@ Name: Price, dtype: float64</code></pre>
 <section id="grouping-by-multiple-columns" class="level2">
 <h2 class="anchored" data-anchor-id="grouping-by-multiple-columns">Grouping by Multiple Columns</h2>
 <p>You can group by multiple columns. Doing so will create an index of all unique combinations of the groupby variables.</p>
-<div id="c1b1be3b" class="cell" data-execution_count="7">
+<div id="1ec108bb" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">"Store"</span>, <span class="st">"Brand_type"</span>])[<span class="st">"Price"</span>].mean()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>Store    Brand_type
@@ -433,8 +433,8 @@ Name: Price, dtype: float64</code></pre>
 </section>
 <section id="using-.agg-for-multiple-functions" class="level2">
 <h2 class="anchored" data-anchor-id="using-.agg-for-multiple-functions">Using .agg() for Multiple Functions</h2>
-<p>If you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings.</p>
-<div id="8ff5a781" class="cell" data-execution_count="8">
+<p>If you are interested in more than one summary, you can use the aggregate <code>agg()</code> function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for <code>agg()</code> will be a list of functions typed as strings.</p>
+<div id="d81dc58b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].agg([<span class="st">"mean"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"count"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
 <div>
@@ -479,7 +479,7 @@ Name: Price, dtype: float64</code></pre>
 </div>
 </div>
 <p>If you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the column names as the keys with the functions you wish to apply as the values. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value.</p>
-<div id="aee9ace7" class="cell" data-execution_count="9">
+<div id="c9342e08" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>).agg({</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Price"</span>: [<span class="st">"mean"</span>, <span class="st">"max"</span>],</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sugar_grams"</span>: <span class="st">"mean"</span></span>
@@ -530,8 +530,8 @@ Name: Price, dtype: float64</code></pre>
 </section>
 <section id="resetting-the-index" class="level2">
 <h2 class="anchored" data-anchor-id="resetting-the-index">Resetting the Index</h2>
-<p>After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index(). This will move the grouped variable back to a regular column and create a new default index.</p>
-<div id="fd8a3350" class="cell" data-execution_count="10">
+<p>After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use <code>reset_index()</code>. This will move the grouped variable back to a regular column and create a new default index.</p>
+<div id="8f123691" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].mean().reset_index()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
 <div>
@@ -565,19 +565,19 @@ Name: Price, dtype: float64</code></pre>
 </section>
 <section id="split---apply---combine" class="level2">
 <h2 class="anchored" data-anchor-id="split---apply---combine">Split - Apply - Combine</h2>
-<p>The groupby() function is ultimately a tool for the split-apply-combine process.</p>
+<p>The <code>groupby()</code> function is ultimately a tool for the split-apply-combine process.</p>
 <ol type="1">
 <li>Split: The data is first split into groups based on the groupby variable(s).</li>
 <li>Apply: Then, a function is applied to each group independently.</li>
 <li>Combine: Finally, the results are combined back into a single data structure by resetting the index or using the default index.</li>
 </ol>
-<p>If you feel stuck on how to use groupby() or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how groupby() works and how to use it effectively.</p>
+<p>If you feel stuck on how to use <code>groupby()</code> or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how <code>groupby()</code> works and how to use it effectively.</p>
 </section>
 <section id="conclusion-and-next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
-<p>This tutorial covered only the basics of the pandas groupby function. Yet, even the simplest uses of groupby() can effectively answer the most common data analysis questions.</p>
-<p>To dive deeper into the groupby() function, check out the official pandas documentation <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">here</a>. For more about the split-apply-combine process, which is the underlying mechanism of groupby(), see this documentation <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby-split-apply-combine">here</a>. I encourage you to epxlore the documentation as you will find many more ways to use groupby() and many more functions to apply to your grouped data.</p>
-<p>Now it’s your turn to apply groupby() to some data. You can use the simple cereal dataset we used in this tutorial, or you can find your own dataset to practice with. Try grouping by different variables and applying different functions to see what insights you can uncover! Have fun grouping!</p>
+<p>This tutorial covered only the basics of the pandas <code>groupby()</code> function. Yet, even the simplest uses of <code>groupby()</code> can effectively answer the most common data analysis questions.</p>
+<p>To dive deeper into the <code>groupby()</code> function, check out the official pandas documentation <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html">here</a>. For more about the split-apply-combine process, which is the underlying mechanism of <code>groupby()</code>, see this documentation <a href="https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby-split-apply-combine">here</a>. I encourage you to epxlore the documentation as you will find many more ways to use <code>groupby()</code> and many more functions to apply to your grouped data.</p>
+<p>Now it’s your turn to apply <code>groupby()</code> to some data. You can use the simple cereal dataset we used in this tutorial, or you can find your own dataset to practice with. Try grouping by different variables and applying different functions to see what insights you can uncover! Have fun grouping!</p>
 
 
 <!-- -->
@@ -1049,11 +1049,11 @@ Name: Price, dtype: float64</code></pre>
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to group by category to summarize our data. </span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>The pandas groupby() function allows us to do just that. </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>The pandas <span class="in">`groupby()`</span> function allows us to do just that. </span>
 <span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>The groupby() function is designed to split data by category or groups based on one or more columns and compute summary statistics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, it can be a powerful tool when combined with a function to summarize the data. </span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>The <span class="in">`groupby()`</span> function is designed to split data by category or groups based on one or more columns and compute summary statistics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, it can be a powerful tool when combined with a function to summarize the data. </span>
 <span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>In this tutorial, we'll walk through the simple ways we can use groupby() effectively using a dataset of cereal prices and sugar content from two different stores. </span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>In this tutorial, we'll walk through the simple ways we can use <span class="in">`groupby()`</span> effectively using a dataset of cereal prices and sugar content from two different stores. </span>
 <span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
@@ -1081,14 +1081,14 @@ Name: Price, dtype: float64</code></pre>
 <span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a><span class="fu">## Basic Syntax</span></span>
 <span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>To categorize your data by a certain variable, first, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>To categorize your data by a certain variable, first, call the <span class="in">`groupby()`</span> function on your data frame with the variable column name as your argument. When you call <span class="in">`groupby()`</span>, pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.</span>
 <span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
 <span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)</span>
 <span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. Adding the argument numeric_only = True to the function will apply the function only to numeric variables. </span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that <span class="in">`max()`</span> and <span class="in">`min()`</span> will provide the first and last alphabetically respectively for string values. Adding the argument <span class="in">`numeric_only = True`</span> to the function will apply the function only to numeric variables. </span>
 <span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
 <span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
@@ -1111,80 +1111,81 @@ Name: Price, dtype: float64</code></pre>
 <span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>Note that multiple columns can be selected at once. This code will give us the average price *and* sugar content of cereal per store. </span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[[<span class="st">"Price"</span>, <span class="st">"Sugar_grams"</span>]].mean()</span>
-<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>Note that multiple columns can be selected at once. The following code will give us the average price *and* sugar content of cereal per store. </span>
+<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-92"><a href="#cb12-92" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[[<span class="st">"Price"</span>, <span class="st">"Sugar_grams"</span>]].mean()</span>
+<span id="cb12-93"><a href="#cb12-93" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-94"><a href="#cb12-94" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-95"><a href="#cb12-95" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Aggregations</span></span>
-<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a>Here are some of the most common functions used with groupby():  </span>
-<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>mean() - average </span>
-<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>sum() - total </span>
-<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>max() - maximum value </span>
-<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>min() - minimum value</span>
-<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>count() - number of observations</span>
-<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-96"><a href="#cb12-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-97"><a href="#cb12-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Common Aggregations</span></span>
+<span id="cb12-98"><a href="#cb12-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-99"><a href="#cb12-99" aria-hidden="true" tabindex="-1"></a>Here are some of the most common functions used with <span class="in">`groupby()`</span>:  </span>
+<span id="cb12-100"><a href="#cb12-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-101"><a href="#cb12-101" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>mean() - average </span>
+<span id="cb12-102"><a href="#cb12-102" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>sum() - total </span>
+<span id="cb12-103"><a href="#cb12-103" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>max() - maximum value </span>
+<span id="cb12-104"><a href="#cb12-104" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>min() - minimum value</span>
+<span id="cb12-105"><a href="#cb12-105" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>count() - number of observations</span>
 <span id="cb12-106"><a href="#cb12-106" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grouping by Multiple Columns</span></span>
-<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a>You can group by multiple columns. Doing so will create an index of all unique combinations of the groupby variables. </span>
-<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-113"><a href="#cb12-113" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">"Store"</span>, <span class="st">"Brand_type"</span>])[<span class="st">"Price"</span>].mean()</span>
-<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-107"><a href="#cb12-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-108"><a href="#cb12-108" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grouping by Multiple Columns</span></span>
+<span id="cb12-109"><a href="#cb12-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-110"><a href="#cb12-110" aria-hidden="true" tabindex="-1"></a>You can group by multiple columns. Doing so will create an index of all unique combinations of the groupby variables. </span>
+<span id="cb12-111"><a href="#cb12-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-114"><a href="#cb12-114" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-115"><a href="#cb12-115" aria-hidden="true" tabindex="-1"></a>df.groupby([<span class="st">"Store"</span>, <span class="st">"Brand_type"</span>])[<span class="st">"Price"</span>].mean()</span>
+<span id="cb12-116"><a href="#cb12-116" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-117"><a href="#cb12-117" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-118"><a href="#cb12-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using .agg() for Multiple Functions</span></span>
-<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a>If you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings. </span>
-<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-125"><a href="#cb12-125" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].agg([<span class="st">"mean"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"count"</span>])</span>
-<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-119"><a href="#cb12-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-120"><a href="#cb12-120" aria-hidden="true" tabindex="-1"></a><span class="fu">## Using .agg() for Multiple Functions</span></span>
+<span id="cb12-121"><a href="#cb12-121" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-122"><a href="#cb12-122" aria-hidden="true" tabindex="-1"></a>If you are interested in more than one summary, you can use the aggregate <span class="in">`agg()`</span> function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for <span class="in">`agg()`</span> will be a list of functions typed as strings. </span>
+<span id="cb12-123"><a href="#cb12-123" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-126"><a href="#cb12-126" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-127"><a href="#cb12-127" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].agg([<span class="st">"mean"</span>, <span class="st">"min"</span>, <span class="st">"max"</span>, <span class="st">"count"</span>])</span>
+<span id="cb12-128"><a href="#cb12-128" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-129"><a href="#cb12-129" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a>If you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the column names as the keys with the functions you wish to apply as the values. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value. </span>
-<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-134"><a href="#cb12-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>).agg({</span>
-<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Price"</span>: [<span class="st">"mean"</span>, <span class="st">"max"</span>],</span>
-<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sugar_grams"</span>: <span class="st">"mean"</span></span>
-<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-130"><a href="#cb12-130" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-131"><a href="#cb12-131" aria-hidden="true" tabindex="-1"></a>If you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the column names as the keys with the functions you wish to apply as the values. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value. </span>
+<span id="cb12-132"><a href="#cb12-132" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-135"><a href="#cb12-135" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-136"><a href="#cb12-136" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>).agg({</span>
+<span id="cb12-137"><a href="#cb12-137" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Price"</span>: [<span class="st">"mean"</span>, <span class="st">"max"</span>],</span>
+<span id="cb12-138"><a href="#cb12-138" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Sugar_grams"</span>: <span class="st">"mean"</span></span>
+<span id="cb12-139"><a href="#cb12-139" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb12-140"><a href="#cb12-140" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
 <span id="cb12-141"><a href="#cb12-141" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-142"><a href="#cb12-142" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resetting the Index</span></span>
-<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a>After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index(). This will move the grouped variable back to a regular column and create a new default index. </span>
-<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-149"><a href="#cb12-149" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
-<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].mean().reset_index()</span>
-<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a><span class="fu">## Split - Apply - Combine</span></span>
-<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a>The groupby() function is ultimately a tool for the split-apply-combine process. </span>
-<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a><span class="ss"> 1. </span>Split: The data is first split into groups based on the groupby variable(s). </span>
-<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="ss"> 2. </span>Apply: Then, a function is applied to each group independently. </span>
-<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="ss"> 3. </span>Combine: Finally, the results are combined back into a single data structure by resetting the index or using the default index.</span>
-<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a> If you feel stuck on how to use groupby() or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how groupby() works and how to use it effectively. </span>
-<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion and Next Steps </span></span>
-<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a>This tutorial covered only the basics of the pandas groupby function. Yet, even the simplest uses of groupby() can effectively answer the most common data analysis questions. </span>
-<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a>To dive deeper into the groupby() function, check out the official pandas documentation <span class="co">[</span><span class="ot">here</span><span class="co">](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)</span>. For more about the split-apply-combine process, which is the underlying mechanism of groupby(), see this documentation <span class="co">[</span><span class="ot">here</span><span class="co">](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby-split-apply-combine)</span>. I encourage you to epxlore the documentation as you will find many more ways to use groupby() and many more functions to apply to your grouped data. </span>
-<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a>Now it's your turn to apply groupby() to some data. You can use the simple cereal dataset we used in this tutorial, or you can find your own dataset to practice with. Try grouping by different variables and applying different functions to see what insights you can uncover! Have fun grouping! </span>
+<span id="cb12-143"><a href="#cb12-143" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-144"><a href="#cb12-144" aria-hidden="true" tabindex="-1"></a><span class="fu">## Resetting the Index</span></span>
+<span id="cb12-145"><a href="#cb12-145" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-146"><a href="#cb12-146" aria-hidden="true" tabindex="-1"></a>After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use <span class="in">`reset_index()`</span>. This will move the grouped variable back to a regular column and create a new default index. </span>
+<span id="cb12-147"><a href="#cb12-147" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-150"><a href="#cb12-150" aria-hidden="true" tabindex="-1"></a><span class="in">```{python}</span></span>
+<span id="cb12-151"><a href="#cb12-151" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">"Store"</span>)[<span class="st">"Price"</span>].mean().reset_index()</span>
+<span id="cb12-152"><a href="#cb12-152" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb12-153"><a href="#cb12-153" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-154"><a href="#cb12-154" aria-hidden="true" tabindex="-1"></a><span class="fu">## Split - Apply - Combine</span></span>
+<span id="cb12-155"><a href="#cb12-155" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-156"><a href="#cb12-156" aria-hidden="true" tabindex="-1"></a>The <span class="in">`groupby()`</span> function is ultimately a tool for the split-apply-combine process. </span>
+<span id="cb12-157"><a href="#cb12-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-158"><a href="#cb12-158" aria-hidden="true" tabindex="-1"></a><span class="ss"> 1. </span>Split: The data is first split into groups based on the groupby variable(s). </span>
+<span id="cb12-159"><a href="#cb12-159" aria-hidden="true" tabindex="-1"></a><span class="ss"> 2. </span>Apply: Then, a function is applied to each group independently. </span>
+<span id="cb12-160"><a href="#cb12-160" aria-hidden="true" tabindex="-1"></a><span class="ss"> 3. </span>Combine: Finally, the results are combined back into a single data structure by resetting the index or using the default index.</span>
+<span id="cb12-161"><a href="#cb12-161" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-162"><a href="#cb12-162" aria-hidden="true" tabindex="-1"></a> If you feel stuck on how to use <span class="in">`groupby()`</span> or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how <span class="in">`groupby()`</span> works and how to use it effectively. </span>
+<span id="cb12-163"><a href="#cb12-163" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-164"><a href="#cb12-164" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion and Next Steps </span></span>
+<span id="cb12-165"><a href="#cb12-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-166"><a href="#cb12-166" aria-hidden="true" tabindex="-1"></a>This tutorial covered only the basics of the pandas <span class="in">`groupby()`</span> function. Yet, even the simplest uses of <span class="in">`groupby()`</span> can effectively answer the most common data analysis questions. </span>
+<span id="cb12-167"><a href="#cb12-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-168"><a href="#cb12-168" aria-hidden="true" tabindex="-1"></a>To dive deeper into the <span class="in">`groupby()`</span> function, check out the official pandas documentation <span class="co">[</span><span class="ot">here</span><span class="co">](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html)</span>. For more about the split-apply-combine process, which is the underlying mechanism of <span class="in">`groupby()`</span>, see this documentation <span class="co">[</span><span class="ot">here</span><span class="co">](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby-split-apply-combine)</span>. I encourage you to epxlore the documentation as you will find many more ways to use <span class="in">`groupby()`</span> and many more functions to apply to your grouped data. </span>
+<span id="cb12-169"><a href="#cb12-169" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-170"><a href="#cb12-170" aria-hidden="true" tabindex="-1"></a>Now it's your turn to apply <span class="in">`groupby()`</span> to some data. You can use the simple cereal dataset we used in this tutorial, or you can find your own dataset to practice with. Try grouping by different variables and applying different functions to see what insights you can uncover! Have fun grouping! </span>
 </code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->

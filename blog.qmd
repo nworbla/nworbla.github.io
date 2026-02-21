@@ -11,11 +11,11 @@ execute:
 
 Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to group by category to summarize our data. 
 
-The pandas groupby() function allows us to do just that. 
+The pandas `groupby()` function allows us to do just that. 
 
-The groupby() function is designed to split data by category or groups based on one or more columns and compute summary statistics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, it can be a powerful tool when combined with a function to summarize the data. 
+The `groupby()` function is designed to split data by category or groups based on one or more columns and compute summary statistics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, it can be a powerful tool when combined with a function to summarize the data. 
 
-In this tutorial, we'll walk through the simple ways we can use groupby() effectively using a dataset of cereal prices and sugar content from two different stores. 
+In this tutorial, we'll walk through the simple ways we can use `groupby()` effectively using a dataset of cereal prices and sugar content from two different stores. 
 
 ```{python}
 #| echo: false
@@ -43,14 +43,14 @@ df
 
 ## Basic Syntax
 
-To categorize your data by a certain variable, first, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.
+To categorize your data by a certain variable, first, call the `groupby()` function on your data frame with the variable column name as your argument. When you call `groupby()`, pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.
 
 ```{python}
 #| eval: false
 df.groupby("Store")
 ```
 
-Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. Adding the argument numeric_only = True to the function will apply the function only to numeric variables. 
+Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that `max()` and `min()` will provide the first and last alphabetically respectively for string values. Adding the argument `numeric_only = True` to the function will apply the function only to numeric variables. 
 
 ```{python}
 #| eval: false
@@ -73,7 +73,8 @@ df.groupby("Store")[["Price"]].mean()
 ```
 
 
-Note that multiple columns can be selected at once. This code will give us the average price *and* sugar content of cereal per store. 
+
+Note that multiple columns can be selected at once. The following code will give us the average price *and* sugar content of cereal per store. 
 
 ```{python}
 df.groupby("Store")[["Price", "Sugar_grams"]].mean()
@@ -83,7 +84,7 @@ df.groupby("Store")[["Price", "Sugar_grams"]].mean()
 
 ## Common Aggregations
 
-Here are some of the most common functions used with groupby():  
+Here are some of the most common functions used with `groupby()`:  
 
 - mean() - average 
 - sum() - total 
@@ -104,7 +105,7 @@ df.groupby(["Store", "Brand_type"])["Price"].mean()
 
 ## Using .agg() for Multiple Functions
 
-If you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings. 
+If you are interested in more than one summary, you can use the aggregate `agg()` function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for `agg()` will be a list of functions typed as strings. 
 
 ```{python}
 df.groupby("Store")["Price"].agg(["mean", "min", "max", "count"])
@@ -124,7 +125,7 @@ df.groupby("Store").agg({
 
 ## Resetting the Index
 
-After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index(). This will move the grouped variable back to a regular column and create a new default index. 
+After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use `reset_index()`. This will move the grouped variable back to a regular column and create a new default index. 
 
 ```{python}
 df.groupby("Store")["Price"].mean().reset_index()
@@ -132,18 +133,18 @@ df.groupby("Store")["Price"].mean().reset_index()
 
 ## Split - Apply - Combine
 
-The groupby() function is ultimately a tool for the split-apply-combine process. 
+The `groupby()` function is ultimately a tool for the split-apply-combine process. 
 
  1. Split: The data is first split into groups based on the groupby variable(s). 
  2. Apply: Then, a function is applied to each group independently. 
  3. Combine: Finally, the results are combined back into a single data structure by resetting the index or using the default index.
 
- If you feel stuck on how to use groupby() or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how groupby() works and how to use it effectively. 
+ If you feel stuck on how to use `groupby()` or are not sure how to get the result you want, break it down into these three steps. This three-step process can help you understannd how `groupby()` works and how to use it effectively. 
 
 ## Conclusion and Next Steps 
 
-This tutorial covered only the basics of the pandas groupby function. Yet, even the simplest uses of groupby() can effectively answer the most common data analysis questions. 
+This tutorial covered only the basics of the pandas `groupby()` function. Yet, even the simplest uses of `groupby()` can effectively answer the most common data analysis questions. 
 
-To dive deeper into the groupby() function, check out the official pandas documentation [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html). For more about the split-apply-combine process, which is the underlying mechanism of groupby(), see this documentation [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby-split-apply-combine). I encourage you to epxlore the documentation as you will find many more ways to use groupby() and many more functions to apply to your grouped data. 
+To dive deeper into the `groupby()` function, check out the official pandas documentation [here](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.groupby.html). For more about the split-apply-combine process, which is the underlying mechanism of `groupby()`, see this documentation [here](https://pandas.pydata.org/pandas-docs/stable/user_guide/groupby.html#groupby-split-apply-combine). I encourage you to epxlore the documentation as you will find many more ways to use `groupby()` and many more functions to apply to your grouped data. 
 
-Now it's your turn to apply groupby() to some data. You can use the simple cereal dataset we used in this tutorial, or you can find your own dataset to practice with. Try grouping by different variables and applying different functions to see what insights you can uncover! Have fun grouping! 
+Now it's your turn to apply `groupby()` to some data. You can use the simple cereal dataset we used in this tutorial, or you can find your own dataset to practice with. Try grouping by different variables and applying different functions to see what insights you can uncover! Have fun grouping! 
