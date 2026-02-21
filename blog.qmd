@@ -1,5 +1,8 @@
 ---
 title: "Pandas groupby() Simplified: A Quick, Practical Guide"
+format: html
+execute:
+  echo: true
 ---
 
 ## Introduction
@@ -12,7 +15,7 @@ The groupby() function is designed to split data by category or groups based on 
 
 In this tutorial, we'll walk through the simple ways we can use groupby() effectively. 
 
-```{python}
+```python
 #| echo: false
 import pandas as pd
 
@@ -40,8 +43,7 @@ df
 
 To categorize your data by a certain variable, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.
 
-```{python}
-#| echo: true
+```python
 #| eval: false 
 df.groupby("Store")
 ```
@@ -56,7 +58,6 @@ df.groupby("Store").mean()
 To get the result of a single column/variable, place it in brackets after the groupby variable(s) and apply the function at the end. 
 
  ```{python}
- #| eval: true 
 df.groupby("Store")["Price"].mean()
 ```
 
@@ -75,7 +76,6 @@ Here are some of the most common functions used with groupby():
 You can groupby multiple columns/variable. This will create an index of all unique combinations of the groupby variables. 
 
 ```{python}
-#| eval: true
 df.groupby(["Store", "Brand_type"])["Price"].mean()
 ```
 
@@ -84,14 +84,12 @@ df.groupby(["Store", "Brand_type"])["Price"].mean()
 If you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings. 
 
 ```{python}
-#| eval: true
 df.groupby("Store")["Price"].agg(["mean", "min", "max", "count"])
 ```
 
 If you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the variable/column names as the keys with the functions you wish to apply as the values as shown below. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value. 
 
 ```{python}
-# | eval: true
 df.groupby("Store").agg({
     "Price": ["mean", "max"],
     "Sugar_grams": "mean"
@@ -101,7 +99,6 @@ df.groupby("Store").agg({
 If you wanted to apply the same function to multiple variables, you could simply provide a list of variable names. 
 
 ```{python}
-# | eval: true
 df.groupby("Store")[["Price", "Sugar_grams"]].mean()
 ```
 
@@ -110,7 +107,6 @@ df.groupby("Store")[["Price", "Sugar_grams"]].mean()
 After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index().
 
 ```{python}
-# | eval: true
 df.groupby("Store")["Price"].mean().reset_index()
 ```
 
