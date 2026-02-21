@@ -2,11 +2,9 @@
 title: "Pandas groupby() Simplified: A Quick, Practical Guide"
 ---
 
-...in progress...
-
 ## Introduction
 
-Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to goup by category to summarize our data. 
+Suppose we want to calculate the total sales of an item per store. Or the average price per product category rather than the average price overall. In data analysis, we often want to group by category to summarize our data. 
 
 The pandas groupby() function allows us to do just that. 
 
@@ -14,7 +12,7 @@ The groupby() function is designed to split data by category or groups based on 
 
 In this tutorial, we'll walk through the simple ways we can use groupby() effectively. 
 
-```python
+```{python}
 #| echo: false
 import pandas as pd
 
@@ -37,22 +35,23 @@ df = pd.DataFrame(data)
 df
 ```
 
+
 ## Basic Syntax
 
+To categorize your data by a certain variable, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.
+
 ```python
-#| eval: false
 df.groupby("Store")
 ```
+Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. 
 
-Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. 
-
-```python
-#| eval: false
+```{python}
+# | eval = false 
 df.groupby("Store").mean()
 ```
+To get the result of a single column/variable, place it in brackets after the groupby variable(s) and apply the function at the end. 
 
-
- ```python
+ ```{python}
 df.groupby("Store")["Price"].mean()
 ```
 
@@ -68,27 +67,44 @@ Here are some of the most common functions used with groupby():
 
 ## Grouping by Multiple Columns
 
-```python
+You can groupby multiple columns/variable. This will create an index of all unique combinations of the groupby variables. 
+
+```{python}
 df.groupby(["Store", "Brand_type"])["Price"].mean()
 ```
 
 ## Using .agg() for Multiple Functions
 
-```python
+If you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings. 
+
+```{python}
 df.groupby("Store")["Price"].agg(["mean", "min", "max", "count"])
 ```
+If you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the variable/column names as the keys with the functions you wish to apply as the values as shown below. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value. 
 
-```python
+```{python}
 df.groupby("Store").agg({
     "Price": ["mean", "max"],
     "Sugar_grams": "mean"
 })
 ```
 
+If you wanted to apply the same function to multiple variables, you could simply provide a list of variable names. 
+
+```{python}
+df.groupby("Store")[["Price", "Sugar_grams"]].mean()
+```
+
 ## Resetting the Index
 
-```python
+After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index().
+
+```{python}
 df.groupby("Store")["Price"].mean().reset_index()
 ```
 
 ## Conclusion and Next Steps 
+
+This tutorial covered only the basics of the pandas groupby function. Yet, even the simplest uses of groupby() can effectively answer the most common data analysis questions. 
+
+Now it's your turn to apply groupby() to some data. 
