@@ -44,14 +44,12 @@ df
 To categorize your data by a certain variable, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.
 
 ```{python}
-#| eval: false 
 df.groupby("Store")
 ```
 
 Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. 
 
 ```{python}
-#| eval: false 
 df.groupby("Store").mean()
 ```
 
