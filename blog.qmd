@@ -3,6 +3,8 @@ title: "Pandas groupby() Simplified: A Quick, Practical Guide"
 format: html
 execute:
   echo: true
+  warning: false
+  message: false
 ---
 
 ## Introduction
