@@ -46,12 +46,14 @@ df.groupby("Store")
 Next, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values. 
 
 ```{python}
-# | eval = false 
+# | eval: false 
 df.groupby("Store").mean()
 ```
+
 To get the result of a single column/variable, place it in brackets after the groupby variable(s) and apply the function at the end. 
 
  ```{python}
+ # | eval: true 
 df.groupby("Store")["Price"].mean()
 ```
 
@@ -70,6 +72,7 @@ Here are some of the most common functions used with groupby():
 You can groupby multiple columns/variable. This will create an index of all unique combinations of the groupby variables. 
 
 ```{python}
+# | eval: true
 df.groupby(["Store", "Brand_type"])["Price"].mean()
 ```
 
@@ -78,11 +81,14 @@ df.groupby(["Store", "Brand_type"])["Price"].mean()
 If you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings. 
 
 ```{python}
+# | eval: true
 df.groupby("Store")["Price"].agg(["mean", "min", "max", "count"])
 ```
+
 If you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the variable/column names as the keys with the functions you wish to apply as the values as shown below. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value. 
 
 ```{python}
+# | eval: true
 df.groupby("Store").agg({
     "Price": ["mean", "max"],
     "Sugar_grams": "mean"
@@ -92,6 +98,7 @@ df.groupby("Store").agg({
 If you wanted to apply the same function to multiple variables, you could simply provide a list of variable names. 
 
 ```{python}
+# | eval: true
 df.groupby("Store")[["Price", "Sugar_grams"]].mean()
 ```
 
@@ -100,6 +107,7 @@ df.groupby("Store")[["Price", "Sugar_grams"]].mean()
 After grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index().
 
 ```{python}
+# | eval: true
 df.groupby("Store")["Price"].mean().reset_index()
 ```
 
