@@ -59,7 +59,7 @@ df.groupby("Store").mean()
 
 To get the result of a single column/variable, place it in brackets after the groupby variable(s) and apply the function at the end. 
 
- ```{python}
+```{python}
 df.groupby("Store")["Price"].mean()
 ```
 
