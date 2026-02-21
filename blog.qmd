@@ -13,9 +13,9 @@ The pandas groupby() function allows us to do just that.
 
 The groupby() function is designed to split data by category or groups based on one or more coloumns and compute summary statitics based on those groups. When called by itself, the output does not look meaningful, which may seem confusing at first. However, adding a simple function and even resetting the index can prove groupby() to be a powerful pandas tool. 
 
-In this tutorial, we'll walk through the simple ways we can use groupby() effectively. 
+In this tutorial, we'll walk through the simple ways we can use groupby() effectively using a dataset of cereal prices and sugar content from two different stores. 
 
-```python
+```{python}
 #| echo: false
 import pandas as pd
 
@@ -43,7 +43,7 @@ df
 
 To categorize your data by a certain variable, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.
 
-```python
+```{python}
 #| eval: false 
 df.groupby("Store")
 ```
