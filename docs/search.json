@@ -18,21 +18,35 @@
     "href": "blog.html#basic-syntax",
     "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
     "section": "Basic Syntax",
-    "text": "Basic Syntax\nTo categorize your data by a certain variable, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.\n\ndf.groupby(\"Store\")\n\nNext, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values.\n\ndf.groupby(\"Store\").mean()\n\nTo get the result of a single column/variable, place it in brackets after the groupby variable(s) and apply the function at the end.\ndf.groupby(“Store”)[“Price”].mean()\n\n## Common Aggregations\n\nHere are some of the most common functions used with groupby():  \n\n- mean() - average \n- sum() - total \n- max() - maximun value \n- min() - minimum value\n- count() - number of observations\n\n## Grouping by Multiple Columns\n\nYou can groupby multiple columns/variable. This will create an index of all unique combinations of the groupby variables. \n\n```{python}\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()"
+    "text": "Basic Syntax\nTo categorize your data by a certain variable, call the groupby function on your data frame with the variable column name as your argument. When you call groupby(), pandas creates groups based on the unique values of that column. Those grouped values become the index of the summarized result after a function is applied.\n\ndf.groupby(\"Store\")\n\nNext, add a call to a function. The format of the code below will apply the function to all other variables grouped by the groupby variable. Adding only a function, as below, may raise an error if some of the other columns contain string values. Note that max() and min() will provide the first and last alphabetically respectively for string values.\n\ndf.groupby(\"Store\").mean()\n\nTo get the result of a single column/variable, place it in brackets after the groupby variable(s) and apply the function at the end.\n\ndf.groupby(\"Store\")[\"Price\"].mean()\n\nStore\nTarget     3.465\nWalmart    4.590\nName: Price, dtype: float64"
+  },
+  {
+    "objectID": "blog.html#common-aggregations",
+    "href": "blog.html#common-aggregations",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Common Aggregations",
+    "text": "Common Aggregations\nHere are some of the most common functions used with groupby():\n\nmean() - average\nsum() - total\nmax() - maximun value\nmin() - minimum value\ncount() - number of observations"
+  },
+  {
+    "objectID": "blog.html#grouping-by-multiple-columns",
+    "href": "blog.html#grouping-by-multiple-columns",
+    "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
+    "section": "Grouping by Multiple Columns",
+    "text": "Grouping by Multiple Columns\nYou can groupby multiple columns/variable. This will create an index of all unique combinations of the groupby variables.\n\ndf.groupby([\"Store\", \"Brand_type\"])[\"Price\"].mean()\n\nStore    Brand_type\nTarget   generic       2.99\n         name brand    3.94\nWalmart  name brand    4.59\nName: Price, dtype: float64"
   },
   {
     "objectID": "blog.html#using-.agg-for-multiple-functions",
     "href": "blog.html#using-.agg-for-multiple-functions",
     "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
     "section": "Using .agg() for Multiple Functions",
-    "text": "Using .agg() for Multiple Functions\nIf you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings.\ndf.groupby(\"Store\")[\"Price\"].agg([\"mean\", \"min\", \"max\", \"count\"])\nIf you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the variable/column names as the keys with the functions you wish to apply as the values as shown below. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value.\ndf.groupby(\"Store\").agg({\n    \"Price\": [\"mean\", \"max\"],\n    \"Sugar_grams\": \"mean\"\n})\nIf you wanted to apply the same function to multiple variables, you could simply provide a list of variable names.\ndf.groupby(\"Store\")[[\"Price\", \"Sugar_grams\"]].mean()"
+    "text": "Using .agg() for Multiple Functions\nIf you are interested in more than one summary, you can use the aggregate agg() function, which allows you to apply more than one function to your variable of interest. With one variable of interest, the argument for agg() will be a list of functions typed as strings.\n\ndf.groupby(\"Store\")[\"Price\"].agg([\"mean\", \"min\", \"max\", \"count\"])\n\n\n\n\n\n\n\n\nmean\nmin\nmax\ncount\n\n\nStore\n\n\n\n\n\n\n\n\nTarget\n3.465\n2.79\n4.39\n4\n\n\nWalmart\n4.590\n3.99\n5.49\n4\n\n\n\n\n\n\n\nIf you intend to apply different or additional functions to distinct variables of interest, the argument should be a dictionary with the variable/column names as the keys with the functions you wish to apply as the values as shown below. If applying multiple functions to a variable, the functions must be contained in a list as the dictionary value.\n\ndf.groupby(\"Store\").agg({\n    \"Price\": [\"mean\", \"max\"],\n    \"Sugar_grams\": \"mean\"\n})\n\n\n\n\n\n\n\n\nPrice\nSugar_grams\n\n\n\nmean\nmax\nmean\n\n\nStore\n\n\n\n\n\n\n\nTarget\n3.465\n4.39\n7.25\n\n\nWalmart\n4.590\n5.49\n7.50\n\n\n\n\n\n\n\nIf you wanted to apply the same function to multiple variables, you could simply provide a list of variable names.\n\ndf.groupby(\"Store\")[[\"Price\", \"Sugar_grams\"]].mean()\n\n\n\n\n\n\n\n\nPrice\nSugar_grams\n\n\nStore\n\n\n\n\n\n\nTarget\n3.465\n7.25\n\n\nWalmart\n4.590\n7.50"
   },
   {
     "objectID": "blog.html#resetting-the-index",
     "href": "blog.html#resetting-the-index",
     "title": "Pandas groupby() Simplified: A Quick, Practical Guide",
     "section": "Resetting the Index",
-    "text": "Resetting the Index\nAfter grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index().\ndf.groupby(\"Store\")[\"Price\"].mean().reset_index()"
+    "text": "Resetting the Index\nAfter grouping, the grouped variable becomes the index. If you want it to remain a regular column, you can use reset_index().\n\ndf.groupby(\"Store\")[\"Price\"].mean().reset_index()\n\n\n\n\n\n\n\n\nStore\nPrice\n\n\n\n\n0\nTarget\n3.465\n\n\n1\nWalmart\n4.590"
   },
   {
     "objectID": "blog.html#conclusion-and-next-steps",
