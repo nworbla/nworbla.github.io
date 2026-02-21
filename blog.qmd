@@ -95,7 +95,7 @@ Here are some of the most common functions used with `groupby()`:
 
 ## Grouping by Multiple Columns
 
-You can group by multiple columns. Doing so will create an index of all unique combinations of the groupby variables. 
+You can group by multiple columns. Doing so will create an index of all unique combinations of the grouped variables. 
 
 ```{python}
 df.groupby(["Store", "Brand_type"])["Price"].mean()
