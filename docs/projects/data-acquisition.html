@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>data-acquisition – Aisha Wilkins - Data Science Portfolio</title>
+<title>Budget Bytes Recipes: A Data Acquisition Project – Aisha Wilkins - Data Science Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -179,7 +179,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/data-acquisition.html">data-acquisition.html</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../projects/data-acquisition.html">Budget Bytes Recipes: A Data Acquisition Project</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../projects/data-acquisition.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">data-acquisition.html</span></a>
+ <span class="menu-text">Budget Bytes Recipes: A Data Acquisition Project</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,19 +220,189 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#responsible-scraping" id="toc-responsible-scraping" class="nav-link" data-scroll-target="#responsible-scraping">Responsible Scraping</a></li>
+  <li><a href="#how-the-data-was-collected" id="toc-how-the-data-was-collected" class="nav-link" data-scroll-target="#how-the-data-was-collected">How the Data Was Collected</a></li>
+  <li><a href="#overview-of-the-data" id="toc-overview-of-the-data" class="nav-link" data-scroll-target="#overview-of-the-data">Overview of the Data</a>
+  <ul class="collapse">
+  <li><a href="#data-dictionary" id="toc-data-dictionary" class="nav-link" data-scroll-target="#data-dictionary">Data Dictionary</a></li>
+  </ul></li>
+  <li><a href="#cleaning-the-data" id="toc-cleaning-the-data" class="nav-link" data-scroll-target="#cleaning-the-data">Cleaning the Data</a></li>
+  <li><a href="#limitations-of-the-data" id="toc-limitations-of-the-data" class="nav-link" data-scroll-target="#limitations-of-the-data">Limitations of the Data</a></li>
+  <li><a href="#exploratory-analysis" id="toc-exploratory-analysis" class="nav-link" data-scroll-target="#exploratory-analysis">Exploratory Analysis</a></li>
+  <li><a href="#conclusion-and-next-steps" id="toc-conclusion-and-next-steps" class="nav-link" data-scroll-target="#conclusion-and-next-steps">Conclusion and Next Steps</a></li>
+  <li><a href="#further-information-and-resources" id="toc-further-information-and-resources" class="nav-link" data-scroll-target="#further-information-and-resources">Further Information and Resources</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"><h1 class="title display-7"></h1></header><div class="quarto-title-block"><div class="quarto-title-tools-only"><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Budget Bytes Recipes: A Data Acquisition Project</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>If you’ve ever planned meals or cooked regularly, you know how time consuming and expensive it can feel. Budgeting, grocery shopping, and preparing meals can quickly become overwhelming. As a wife, student, and part-time working mom, I’m especially interested in meals that are inexpensive, easy, and quick to prepare.</p>
+<p>To better understand what makes a meal both affordable and quick to prepare, I gathered data on recipes from the popular food blog, <em>Budget Bytes</em>, which specializes in affordable meals. My goal was to create a dataset that could answer questions like:</p>
+<ul>
+<li>What is the typical time and cost to prepare a meal? How do these vary across different recipes?</li>
+<li>Which type of meal is usually quickest to prepare?</li>
+<li>Which type of meal is usually the least expensive?</li>
+<li>Are cheaper recipes also quicker to prepare?</li>
+</ul>
+</section>
+<section id="responsible-scraping" class="level2">
+<h2 class="anchored" data-anchor-id="responsible-scraping">Responsible Scraping</h2>
+<p>All recipe pages on <em>Budget Bytes</em> are publicly accessible and do not require users to log in. Because the data is openly available and intended for public viewing, collecting summary information such as recipe names, preparation times, and costs is considered within acceptable web scraping practice.</p>
+<p>Before collecting data, I reviewed the website’s <code>robots.txt</code> file to confirm that automated access to recipe pages was not restricted. The file mainly blocks administrative and login pages but does not restrict access to public recipe listings.</p>
+<p>To avoid overwhelming the website’s server, I added short delays between requests using the <code>time.sleep()</code> function to mimic normal browsing behavior. I also included a user-agent header in my requests so the server could identify the type of client making the request.</p>
+</section>
+<section id="how-the-data-was-collected" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-data-was-collected">How the Data Was Collected</h2>
+<p>To collect the recipe data, I followed a few main steps.</p>
+<p>First, I used Python’s <code>requests</code> library to access the recipe listing pages from <em>Budget Bytes</em>. I included request headers and confirmed that the server returned a successful status code. After successfully accessing the page via <code>requests</code>, I parsed the page content using <code>BeautifulSoup</code> to make the HTML more readable and navigable.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="html_structure.png" class="img-fluid figure-img" width="600"></p>
+<figcaption>HTML structure showing recipe tile elements including title and cost in the Budget Bytes website inspector</figcaption>
+</figure>
+</div>
+<p>Next, I inspected the HTML of the recipe listing page to identify the elements that contained the information I wanted, such as recipe titles, cost information, and links to the full recipe pages. Using <code>BeautifulSoup</code>’s <code>find_all()</code> function, I extracted these elements from each recipe tile. The extracted values were stored in a list of dictionaries (<code>rows</code>), where each dictionary represented a single recipe.</p>
+<p>To gather more recipes, I extended this process across multiple pages of the website. I identified the URL pattern used for pagination and created a loop that iterated through multiple pages of the recipe listings. Within this loop, each recipe page was accessed and the relevant information was extracted and added to <code>rows</code>. Short delays using <code>time.sleep()</code> were included to space out requests and avoid overwhelming the server.</p>
+<p>Finally, the collected list of recipe dictionaries was converted into a Pandas DataFrame. This allowed the data to be cleaned and prepared for further analysis.</p>
+<p>Using this process, I was able to construct a dataset of 357 recipes from <em>Budget Bytes</em> for exploratory analysis.</p>
+</section>
+<section id="overview-of-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-the-data">Overview of the Data</h2>
+<p>The final dataset contains 357 recipes and 7 variables describing recipe name, total cost, cost per serving, number of servings, preparation time, cook time, and total time. The variables are defined below.</p>
+<section id="data-dictionary" class="level3">
+<h3 class="anchored" data-anchor-id="data-dictionary">Data Dictionary</h3>
+<table class="caption-top table">
+<caption>Description of variables in the recipe dataset</caption>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Type</th>
+<th>Units</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>title</td>
+<td>string</td>
+<td>—</td>
+<td>Full recipe title as found on Budget Bytes</td>
+</tr>
+<tr class="even">
+<td>cost</td>
+<td>float</td>
+<td>USD</td>
+<td>Total cost of ingredients for the recipe</td>
+</tr>
+<tr class="odd">
+<td>cost_per_serving</td>
+<td>float</td>
+<td>USD</td>
+<td>Cost of ingredients per serving</td>
+</tr>
+<tr class="even">
+<td>servings</td>
+<td>integer</td>
+<td>—</td>
+<td>Number of servings listed in the recipe</td>
+</tr>
+<tr class="odd">
+<td>prep_time</td>
+<td>integer</td>
+<td>minutes</td>
+<td>Time required for preparation</td>
+</tr>
+<tr class="even">
+<td>cook_time</td>
+<td>integer</td>
+<td>minutes</td>
+<td>Cooking time</td>
+</tr>
+<tr class="odd">
+<td>total_time</td>
+<td>integer</td>
+<td>minutes</td>
+<td>Prep time + cook time</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="cleaning-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-the-data">Cleaning the Data</h2>
+<p>After the initial scraping process, the dataset contained 357 rows and 5 variables: recipe title, cost (containing both total and per serving), preparation time, cook time, and servings. Several cleaning steps were then applied to prepare the data for analysis.</p>
+<p>First, I checked for duplicate recipes using the recipe title as a unique identifier. Although recipes were scraped from multiple pages, no duplicate titles were found in the dataset.</p>
+<p>Next, the cost information was separated into two variables: total recipe cost and cost per serving. These values were originally stored in the same string and were split into separate columns so that they could be analyzed independently.</p>
+<p>Because the scraped values were stored as text (for example “$7.65 recipe” or “15 minutes”), regular expressions were used to extract the numeric portions of each variable and convert them into numeric data types.</p>
+<p>Some recipes naturally did not include preparation time or cook time. These missing values were replaced with 0 so that total cooking time could still be calculated. Finally, a new variable, <strong>total time</strong>, was created by adding preparation time and cook time together.</p>
+</section>
+<section id="limitations-of-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="limitations-of-the-data">Limitations of the Data</h2>
+<p>A limitation of the data is that it only includes recipes from the first 30 pages of the <em>Budget Bytes</em> main dish category. While this is a substantial number of recipes, it may not be fully representative of all the main dish recipes available on the site.</p>
+<p>A further limitation is that the cost information listed on the <em>Budget Bytes</em> website may not reflect actual costs for all users. Ingredient prices can vary widely, so the cost data should be interpreted as an estimate rather than an exact figure.</p>
+<p>The data also does not include information about the ingredients, which could be relevant for understanding factors that contribute to cost and preparation time. This limits the ability to analyze how specific ingredients or types of meals impact affordability and preparation time.</p>
+<p>Finally, the data is based on recipes that are designed to be budget-friendly, which could limit the applicability and generalizability to other recipes or meal planning resources.</p>
+</section>
+<section id="exploratory-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-analysis">Exploratory Analysis</h2>
+<p>My exploratory analysis of the data revealed some interesting insights about the recipes on <em>Budget Bytes</em>.</p>
+<ul>
+<li>The average total recipe cost was $9.37, with the average cost per serving being $1.90.</li>
+<li>The average total cooking time (prep + cook) was 38 minutes.</li>
+<li>There was little to no correlation between cost and total time, suggesting that cheaper recipes are not necessarily quicker to prepare.</li>
+<li>Comparing chicken and beef recipes, chicken recipes were generally cheaper overall, while beef recipes were slightly quicker to prepare and had a slightly lower cost per serving.</li>
+</ul>
+</section>
+<section id="conclusion-and-next-steps" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion-and-next-steps">Conclusion and Next Steps</h2>
+<p>This project demonstrates how web scraping can be used to gather data for analysis when the data is not readily available in a structured format. By collecting and cleaning recipe data from <em>Budget Bytes</em>, I was able to create a dataset that can be used to explore questions about meal affordability and preparation time.</p>
+<p>You can do this too! Try scraping a site with multiple pages even! If you have a website in mind that contains data you want to analyze, you can use the web scraping techniques discussed in this blog to gather that data and create your own dataset. Just remember to always be respectful and responsible when scraping data. Happy scraping!</p>
+</section>
+<section id="further-information-and-resources" class="level2">
+<h2 class="anchored" data-anchor-id="further-information-and-resources">Further Information and Resources</h2>
+<p>To check out the code used to scrape and clean the data, see my <a href="https://github.com/nworbla/data_acquisition_project/tree/main">GitHub repository</a>. There you can also find the final dataset in csv format and a Jupyter notebook with some exploratory analysis of the data.</p>
+<p>To learn more about web scraping and data acquisition, check out the following resources:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=bargNl2WeN4">Beautiful Soup + Requests | Web Scraping in Python</a></li>
+<li><a href="https://www.youtube.com/watch?v=xjA1HjvmoMY">Find and Find_All | Web Scraping in Python</a></li>
+</ul>
+<p>To dive deeper into multiple page scraping, check out this tutorial:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=LbylorwP_ak&amp;t=154s">How To Scrape Multiple Pages on a Website (BeautifulSoup Pagination)</a></li>
+</ul>
 
 
 <!-- -->
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -686,7 +856,121 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Budget Bytes Recipes: A Data Acquisition Project"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">## Introduction</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>If you've ever planned meals or cooked regularly, you know how time consuming and expensive it can feel. Budgeting, grocery shopping, and preparing meals can quickly become overwhelming. As a wife, student, and part-time working mom, I’m especially interested in meals that are inexpensive, easy, and quick to prepare.</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>To better understand what makes a meal both affordable and quick to prepare, I gathered data on recipes from the popular food blog, *Budget Bytes*, which specializes in affordable meals. My goal was to create a dataset that could answer questions like: </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>What is the typical time and cost to prepare a meal? How do these vary across different recipes?</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which type of meal is usually quickest to prepare?</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Which type of meal is usually the least expensive?</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Are cheaper recipes also quicker to prepare? </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">## Responsible Scraping </span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>All recipe pages on *Budget Bytes* are publicly accessible and do not require users to log in. Because the data is openly available and intended for public viewing, collecting summary information such as recipe names, preparation times, and costs is considered within acceptable web scraping practice. </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>Before collecting data, I reviewed the website’s <span class="in">`robots.txt`</span> file to confirm that automated access to recipe pages was not restricted. The file mainly blocks administrative and login pages but does not restrict access to public recipe listings. </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>To avoid overwhelming the website's server, I added short delays between requests using the <span class="in">`time.sleep()`</span> function to mimic normal browsing behavior. I also included a user-agent header in my requests so the server could identify the type of client making the request. </span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">## How the Data Was Collected</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>To collect the recipe data, I followed a few main steps. </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>First, I used Python's <span class="in">`requests`</span> library to access the recipe listing pages from *Budget Bytes*. I included request headers and confirmed that the server returned a successful status code. After successfully accessing the page via <span class="in">`requests`</span>, I parsed the page content using <span class="in">`BeautifulSoup`</span> to make the HTML more readable and navigable. </span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a><span class="al">![HTML structure showing recipe tile elements including title and cost in the Budget Bytes website inspector](html_structure.png)</span>{width=600px}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>Next, I inspected the HTML of the recipe listing page to identify the elements that contained the information I wanted, such as recipe titles, cost information, and links to the full recipe pages. Using <span class="in">`BeautifulSoup`</span>'s <span class="in">`find_all()`</span> function, I extracted these elements from each recipe tile. The extracted values were stored in a list of dictionaries (<span class="in">`rows`</span>), where each dictionary represented a single recipe. </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>To gather more recipes, I extended this process across multiple pages of the website. I identified the URL pattern used for pagination and created a loop that iterated through multiple pages of the recipe listings. Within this loop, each recipe page was accessed and the relevant information was extracted and added to <span class="in">`rows`</span>. Short delays using <span class="in">`time.sleep()`</span> were included to space out requests and avoid overwhelming the server. </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>Finally, the collected list of recipe dictionaries was converted into a Pandas DataFrame. This allowed the data to be cleaned and prepared for further analysis.</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Using this process, I was able to construct a dataset of 357 recipes from *Budget Bytes* for exploratory analysis.</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">## Overview of the Data</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>The final dataset contains 357 recipes and 7 variables describing recipe name, total cost, cost per serving, number of servings, preparation time, cook time, and total time. The variables are defined below.</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="fu">### Data Dictionary</span></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>Table: Description of variables in the recipe dataset</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> Variable <span class="pp">|</span> Type <span class="pp">|</span> Units <span class="pp">|</span> Description <span class="pp">|</span></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="pp">|----------|------|------|-------------|</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> title <span class="pp">|</span> string <span class="pp">|</span> — <span class="pp">|</span> Full recipe title as found on Budget Bytes <span class="pp">|</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> cost <span class="pp">|</span> float <span class="pp">|</span> USD <span class="pp">|</span> Total cost of ingredients for the recipe <span class="pp">|</span></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> cost_per_serving <span class="pp">|</span> float <span class="pp">|</span> USD <span class="pp">|</span> Cost of ingredients per serving <span class="pp">|</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> servings <span class="pp">|</span> integer <span class="pp">|</span> — <span class="pp">|</span> Number of servings listed in the recipe <span class="pp">|</span></span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> prep_time <span class="pp">|</span> integer <span class="pp">|</span> minutes <span class="pp">|</span> Time required for preparation <span class="pp">|</span></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> cook_time <span class="pp">|</span> integer <span class="pp">|</span> minutes <span class="pp">|</span> Cooking time <span class="pp">|</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="pp">|</span> total_time <span class="pp">|</span> integer <span class="pp">|</span> minutes <span class="pp">|</span> Prep time + cook time <span class="pp">|</span></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">## Cleaning the Data</span></span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a>After the initial scraping process, the dataset contained 357 rows and 5 variables: recipe title, cost (containing both total and per serving), preparation time, cook time, and servings. Several cleaning steps were then applied to prepare the data for analysis. </span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>First, I checked for duplicate recipes using the recipe title as a unique identifier. Although recipes were scraped from multiple pages, no duplicate titles were found in the dataset.</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>Next, the cost information was separated into two variables: total recipe cost and cost per serving. These values were originally stored in the same string and were split into separate columns so that they could be analyzed independently. </span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>Because the scraped values were stored as text (for example "$7.65 recipe" or "15 minutes"), regular expressions were used to extract the numeric portions of each variable and convert them into numeric data types. </span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>Some recipes naturally did not include preparation time or cook time. These missing values were replaced with 0 so that total cooking time could still be calculated. Finally, a new variable, **total time**, was created by adding preparation time and cook time together.</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a><span class="fu">## Limitations of the Data</span></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>A limitation of the data is that it only includes recipes from the first 30 pages of the *Budget Bytes* main dish category. While this is a substantial number of recipes, it may not be fully representative of all the main dish recipes available on the site. </span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>A further limitation is that the cost information listed on the *Budget Bytes* website may not reflect actual costs for all users. Ingredient prices can vary widely, so the cost data should be interpreted as an estimate rather than an exact figure.</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>The data also does not include information about the ingredients, which could be relevant for understanding factors that contribute to cost and preparation time. This limits the ability to analyze how specific ingredients or types of meals impact affordability and preparation time. </span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>Finally, the data is based on recipes that are designed to be budget-friendly, which could limit the applicability and generalizability to other recipes or meal planning resources. </span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a><span class="fu">## Exploratory Analysis</span></span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>My exploratory analysis of the data revealed some interesting insights about the recipes on *Budget Bytes*.</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The average total recipe cost was $9.37, with the average cost per serving being $1.90.</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>The average total cooking time (prep + cook) was 38 minutes. </span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>There was little to no correlation between cost and total time, suggesting that cheaper recipes are not necessarily quicker to prepare. </span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Comparing chicken and beef recipes, chicken recipes were generally cheaper overall, while beef recipes were slightly quicker to prepare and had a slightly lower cost per serving. </span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a><span class="fu">## Conclusion and Next Steps</span></span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>This project demonstrates how web scraping can be used to gather data for analysis when the data is not readily available in a structured format. By collecting and cleaning recipe data from *Budget Bytes*, I was able to create a dataset that can be used to explore questions about meal affordability and preparation time.</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a>You can do this too! Try scraping a site with multiple pages even! If you have a website in mind that contains data you want to analyze, you can use the web scraping techniques discussed in this blog to gather that data and create your own dataset. Just remember to always be respectful and responsible when scraping data. Happy scraping! </span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a><span class="fu">## Further Information and Resources</span></span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>To check out the code used to scrape and clean the data, see my <span class="co">[</span><span class="ot">GitHub repository</span><span class="co">](https://github.com/nworbla/data_acquisition_project/tree/main)</span>. There you can also find the final dataset in csv format and a Jupyter notebook with some exploratory analysis of the data. </span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>To learn more about web scraping and data acquisition, check out the following resources: </span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Beautiful Soup + Requests | Web Scraping in Python</span><span class="co">](https://www.youtube.com/watch?v=bargNl2WeN4)</span></span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Find and Find_All | Web Scraping in Python</span><span class="co">](https://www.youtube.com/watch?v=xjA1HjvmoMY)</span></span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>To dive deeper into multiple page scraping, check out this tutorial: </span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">How To Scrape Multiple Pages on a Website (BeautifulSoup Pagination)</span><span class="co">](https://www.youtube.com/watch?v=LbylorwP_ak&amp;t=154s)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 

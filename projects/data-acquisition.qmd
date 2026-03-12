@@ -30,6 +30,8 @@ To collect the recipe data, I followed a few main steps.
 
 First, I used Python's `requests` library to access the recipe listing pages from *Budget Bytes*. I included request headers and confirmed that the server returned a successful status code. After successfully accessing the page via `requests`, I parsed the page content using `BeautifulSoup` to make the HTML more readable and navigable. 
 
+![HTML structure showing recipe tile elements including title and cost in the Budget Bytes website inspector](html_structure.png){width=600px}
+
 Next, I inspected the HTML of the recipe listing page to identify the elements that contained the information I wanted, such as recipe titles, cost information, and links to the full recipe pages. Using `BeautifulSoup`'s `find_all()` function, I extracted these elements from each recipe tile. The extracted values were stored in a list of dictionaries (`rows`), where each dictionary represented a single recipe. 
 
 To gather more recipes, I extended this process across multiple pages of the website. I identified the URL pattern used for pagination and created a loop that iterated through multiple pages of the recipe listings. Within this loop, each recipe page was accessed and the relevant information was extracted and added to `rows`. Short delays using `time.sleep()` were included to space out requests and avoid overwhelming the server. 
@@ -104,8 +106,10 @@ You can do this too! Try scraping a site with multiple pages even! If you have a
 To check out the code used to scrape and clean the data, see my [GitHub repository](https://github.com/nworbla/data_acquisition_project/tree/main). There you can also find the final dataset in csv format and a Jupyter notebook with some exploratory analysis of the data. 
 
 To learn more about web scraping and data acquisition, check out the following resources: 
+
 - [Beautiful Soup + Requests | Web Scraping in Python](https://www.youtube.com/watch?v=bargNl2WeN4)
 - [Find and Find_All | Web Scraping in Python](https://www.youtube.com/watch?v=xjA1HjvmoMY)
 
 To dive deeper into multiple page scraping, check out this tutorial: 
+
 - [How To Scrape Multiple Pages on a Website (BeautifulSoup Pagination)](https://www.youtube.com/watch?v=LbylorwP_ak&t=154s)
